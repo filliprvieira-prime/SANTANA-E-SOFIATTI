@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   DESIGN_SYSTEM,
   HERO_CONTENT, 
@@ -18,6 +18,7 @@ import {
   PRIME_AGENCY_DATA,
   getDriveImageUrl 
 } from './constants';
+import { trackPageView, trackWhatsAppClick, trackFormSubmit, trackFloorPlanView, trackEvent } from './firebaseConfig';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +45,7 @@ const Navbar: React.FC = () => {
             <a 
               href={CONTACT_INFO.whatsapp} 
               target="_blank" 
+              onClick={() => trackWhatsAppClick()}
               className={`bg-[${DESIGN_SYSTEM.colors.primary}] text-white px-6 py-2 rounded-full font-medium hover:bg-opacity-90 ${DESIGN_SYSTEM.transition} text-sm`}
             >
               CONTATO
@@ -588,6 +590,11 @@ const Footer: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  useEffect(() => {
+    // Rastrear visualização da página inicial
+    trackPageView('Home - Sant\'Ana & Sofiatti');
+  }, []);
+
   return (
     <div className={`min-h-screen selection:bg-[${DESIGN_SYSTEM.colors.secondary}] selection:text-white bg-white antialiased`}>
       <Navbar />
