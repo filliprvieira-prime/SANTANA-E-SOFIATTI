@@ -3,8 +3,10 @@ import React from 'react';
 
 /**
  * UTILITY: Function to generate Google Drive image URLs from IDs.
+ * Optimized with width parameter to reduce bandwidth usage.
  */
-export const getDriveImageUrl = (id: string) => `https://lh3.googleusercontent.com/d/${id}=w1600`;
+export const getDriveImageUrl = (id: string, width: number = 1200) => 
+  `https://lh3.googleusercontent.com/d/${id}=w${width}`;
 
 /**
  * DESIGN SYSTEM (Design Code)
@@ -12,13 +14,13 @@ export const getDriveImageUrl = (id: string) => `https://lh3.googleusercontent.c
  */
 export const DESIGN_SYSTEM = {
   colors: {
-    primary: '#1e3a5f',       // Navy Blue (Confiança e Solidez)
+    primary: '#1e3a5f',       // Navy Blue
     primaryLight: '#2a4e7c',
-    secondary: '#a1835b',     // Sand Gold (Luxo e Praia)
+    secondary: '#a1835b',     // Sand Gold
     secondaryLight: '#c2a884',
     accent: '#0e7490',        // Ocean Cyan
     background: '#ffffff',
-    surface: '#f4f7f9',       // Cinza azulado muito claro
+    surface: '#f4f7f9',
     text: {
       main: '#374151',
       light: '#6b7280',
@@ -57,10 +59,10 @@ export const DESIGN_SYSTEM = {
     gutter: 'gap-8 md:gap-12',
   },
   radius: {
-    small: 'rounded-xl',       // 12px
-    medium: 'rounded-2xl',     // 16px
-    large: 'rounded-[2.5rem]', // 40px
-    extraLarge: 'rounded-[3.5rem]', // 56px
+    small: 'rounded-xl',
+    medium: 'rounded-2xl',
+    large: 'rounded-[2.5rem]',
+    extraLarge: 'rounded-[3.5rem]',
   },
   shadows: {
     soft: 'shadow-sm',
@@ -71,7 +73,6 @@ export const DESIGN_SYSTEM = {
   transition: 'transition-all duration-300 ease-in-out',
 };
 
-// Mantendo compatibilidade com o objeto THEME antigo se necessário
 export const THEME = {
   colors: {
     primary: DESIGN_SYSTEM.colors.primary,

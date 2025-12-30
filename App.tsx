@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
             </a>
           </div>
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 focus:outline-none">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 focus:outline-none" aria-label="Abrir Menu">
               <i className={`fa-solid ${isOpen ? 'fa-x' : 'fa-bars'} text-2xl`}></i>
             </button>
           </div>
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 hover:scale-105"
-        style={{ backgroundImage: `url(${getDriveImageUrl(HERO_CONTENT.backgroundId)})` }}
+        style={{ backgroundImage: `url(${getDriveImageUrl(HERO_CONTENT.backgroundId, 1920)})` }}
       >
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
@@ -107,6 +107,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* Preload hero background for performance */}
+      <link rel="prefetch" href={getDriveImageUrl(HERO_CONTENT.backgroundId, 1920)} />
     </section>
   );
 };
@@ -136,8 +138,10 @@ const About: React.FC = () => {
           <div className="lg:col-span-7 space-y-8">
             <div className={`${DESIGN_SYSTEM.radius.large} overflow-hidden shadow-2xl border-4 border-white group`}>
               <img 
-                src={getDriveImageUrl(ABOUT_CONTENT.facadeDayId)} 
+                src={getDriveImageUrl(ABOUT_CONTENT.facadeDayId, 1200)} 
                 alt="Fachada Principal Dia" 
+                loading="lazy"
+                decoding="async"
                 className={`w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105`}
               />
             </div>
@@ -145,15 +149,19 @@ const About: React.FC = () => {
             <div className="grid grid-cols-2 gap-4 md:gap-8">
               <div className={`${DESIGN_SYSTEM.radius.medium} overflow-hidden shadow-xl border-4 border-white group`}>
                 <img 
-                  src={getDriveImageUrl(ABOUT_CONTENT.facadeNightId)} 
+                  src={getDriveImageUrl(ABOUT_CONTENT.facadeNightId, 600)} 
                   alt="Fachada Noite 1" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
               </div>
               <div className={`${DESIGN_SYSTEM.radius.medium} overflow-hidden shadow-xl border-4 border-white group`}>
                 <img 
-                  src={getDriveImageUrl(ABOUT_CONTENT.facadeNight2Id)} 
+                  src={getDriveImageUrl(ABOUT_CONTENT.facadeNight2Id, 600)} 
                   alt="Fachada Noite 2" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
               </div>
@@ -181,8 +189,10 @@ const Leisure: React.FC = () => {
             <div key={item.id} className={`group relative overflow-hidden ${DESIGN_SYSTEM.radius.large} bg-white ${DESIGN_SYSTEM.shadows.medium} ${DESIGN_SYSTEM.transition} hover:-translate-y-2 border border-gray-100 flex flex-col`}>
               <div className="aspect-[16/12] overflow-hidden">
                 <img 
-                  src={getDriveImageUrl(item.imageId)} 
+                  src={getDriveImageUrl(item.imageId, 600)} 
                   alt={item.title} 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
@@ -241,8 +251,10 @@ const FloorPlans: React.FC = () => {
           <div className="flex flex-col gap-12 items-center">
             <div className={`w-full bg-white p-6 md:p-12 lg:p-16 ${DESIGN_SYSTEM.radius.large} ${DESIGN_SYSTEM.shadows.deep} hover:shadow-blue-900/5 ${DESIGN_SYSTEM.transition} flex justify-center overflow-hidden`}>
               <img 
-                src={getDriveImageUrl(selectedPlan.imageId)} 
+                src={getDriveImageUrl(selectedPlan.imageId, 1200)} 
                 alt={selectedPlan.title} 
+                loading="lazy"
+                decoding="async"
                 className="max-h-[80vh] w-full object-contain animate-fadeIn"
                 key={selectedPlan.imageId} 
               />
@@ -283,8 +295,10 @@ const HighlightSection: React.FC = () => {
       <div className={DESIGN_SYSTEM.spacing.container}>
         <div className={`${DESIGN_SYSTEM.radius.extraLarge} overflow-hidden ${DESIGN_SYSTEM.shadows.deep} border border-gray-100 bg-white`}>
           <img 
-            src={getDriveImageUrl(HIGHLIGHT_IMAGE_ID)} 
+            src={getDriveImageUrl(HIGHLIGHT_IMAGE_ID, 1200)} 
             alt="Destaque Sant'Ana & Sofiatti" 
+            loading="lazy"
+            decoding="async"
             className="w-full h-auto object-cover"
           />
         </div>
@@ -308,8 +322,10 @@ const Gallery: React.FC = () => {
           {GALLERY_ITEMS.map((item) => (
             <div key={item.id} className={`group relative overflow-hidden ${DESIGN_SYSTEM.radius.large} bg-white ${DESIGN_SYSTEM.shadows.deep} aspect-video border-8 border-white`}>
               <img 
-                src={getDriveImageUrl(item.imageId)} 
+                src={getDriveImageUrl(item.imageId, 800)} 
                 alt={item.title} 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
@@ -338,8 +354,10 @@ const Location: React.FC = () => {
 
         <div className={`mb-20 ${DESIGN_SYSTEM.radius.extraLarge} overflow-hidden shadow-2xl shadow-black/40 border-8 border-white/5 bg-white p-2`}>
           <img 
-            src={getDriveImageUrl(LOCATION_IMAGE_ID)} 
+            src={getDriveImageUrl(LOCATION_IMAGE_ID, 1200)} 
             alt="Mapa de Localização - Sant'Ana & Sofiatti" 
+            loading="lazy"
+            decoding="async"
             className={`w-full h-auto object-cover ${DESIGN_SYSTEM.radius.large}`}
           />
         </div>
@@ -446,8 +464,10 @@ const AgencySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
         <div className="mb-8 max-w-[250px]">
            <img 
-             src={getDriveImageUrl(PRIME_AGENCY_DATA.logoDriveId)} 
+             src={getDriveImageUrl(PRIME_AGENCY_DATA.logoDriveId, 400)} 
              alt="Logo Prime" 
+             loading="lazy"
+             decoding="async"
              className="w-full h-auto" 
              referrerPolicy="no-referrer" 
            />
@@ -477,8 +497,10 @@ const AgencySection: React.FC = () => {
             <div key={idx} className={`bg-white rounded-[32px] ${DESIGN_SYSTEM.shadows.deep} overflow-hidden border border-slate-100 group flex flex-col`}>
               <div className="relative aspect-video overflow-hidden">
                 <img 
-                  src={getDriveImageUrl(store.imageDriveId)} 
+                  src={getDriveImageUrl(store.imageDriveId, 600)} 
                   alt={store.name} 
+                  loading="lazy"
+                  decoding="async"
                   className={`w-full h-full object-cover group-hover:scale-110 ${DESIGN_SYSTEM.transition}`} 
                   referrerPolicy="no-referrer" 
                 />
@@ -556,6 +578,7 @@ const Footer: React.FC = () => {
       <a 
         href={CONTACT_INFO.whatsapp} 
         target="_blank"
+        aria-label="Contato via WhatsApp"
         className={`fixed bottom-10 right-10 z-50 bg-[#25d366] text-white w-16 h-16 rounded-full ${DESIGN_SYSTEM.shadows.floating} hover:scale-110 ${DESIGN_SYSTEM.transition} flex items-center justify-center ring-8 ring-green-500/10`}
       >
         <i className="fa-brands fa-whatsapp text-3xl"></i>
