@@ -179,7 +179,7 @@ export const LEISURE_ITEMS = [
   { id: 5, title: "ESPAÇO GOURMET", description: "Receber bem, com sabor e estilo.", imageId: '1IoQK_eLFAy4P_82fTaFeTEYXXhDXMKE5', icon: 'fa-utensils' },
   { id: 6, title: "ESPAÇO FITNESS", description: "Corpo em movimento, mente em equilíbrio.", imageId: '1TLxbjHSngpbu17H1YwkKz-Vl2vV02uXh', icon: 'fa-dumbbell' },
   { id: 7, title: "SALÃO DE FESTAS", description: "Celebrações memoráveis em um ambiente sofisticado.", imageId: '1c6WFDubyW3NLQiTcPkczXVyp8mYt5zb-', icon: 'fa-champagne-glasses' },
-  { id: 8, title: "BRINQUEDOTECA", description: "Espaço lúdico e seguro para a diversão das crianças.", imageId: '1c6WFDubyW3NLQiTcPkczXVyp8mYt5zb-', icon: 'fa-shapes' },
+  { id: 8, title: "BRINQUEDOTECA", description: "Espaço lúdico e seguro para a diversão das crianças.", imageId: '1A359fNVFeBz8pH2XG7B8sfT9Bkivl3r5', icon: 'fa-shapes' },
   { id: 9, title: "PLAYGROUND", description: "A diversão e alegria que tomam conta do espaço.", imageId: '1dv95A8dwkyFdyF_v1vvceMqzYeu_83lR', icon: 'fa-children' },
   { id: 13, title: "QUADRA DE AREIA", description: "Movimento que liberta.", imageId: '1mNOwzkb4XKzMEdqi6s6qcO_DTMBDrZ4D', icon: 'fa-volleyball-ball' },
   { id: 14, title: "BAR DA PRAIA", description: "Onde a felicidade é o ingrediente principal.", imageId: '1SBnVcvyCeDwMhdkDcUREtTfLOHy2Bgmm', icon: 'fa-cocktail' },
