@@ -881,7 +881,7 @@ const FloorPlans: React.FC<{ onImageClick: (src: string, alt: string) => void }>
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
           {FLOOR_PLANS.map((plan) => (
             <button
               key={plan.title}
@@ -900,10 +900,10 @@ const FloorPlans: React.FC<{ onImageClick: (src: string, alt: string) => void }>
           ))}
         </div>
 
-        <div className={`bg-gray-50 ${DESIGN_SYSTEM.radius.extraLarge} p-6 md:p-12 lg:p-16 shadow-inner border border-gray-100`}>
-          <div className="flex flex-col gap-12 items-center">
+        <div className={`bg-gray-50 ${DESIGN_SYSTEM.radius.extraLarge} p-4 md:p-8 lg:p-10 shadow-inner border border-gray-100`}>
+          <div className="flex flex-col gap-8 items-center">
             <div 
-              className={`w-full bg-white p-6 md:p-12 lg:p-16 ${DESIGN_SYSTEM.radius.large} ${DESIGN_SYSTEM.shadows.deep} hover:shadow-blue-900/5 ${DESIGN_SYSTEM.transition} flex justify-center overflow-hidden cursor-pointer group relative`}
+              className={`w-full bg-white p-4 md:p-8 lg:p-10 ${DESIGN_SYSTEM.radius.large} ${DESIGN_SYSTEM.shadows.deep} hover:shadow-blue-900/5 ${DESIGN_SYSTEM.transition} flex justify-center overflow-hidden cursor-pointer group relative`}
               onClick={() => {
                 trackLightboxOpen('planta', selectedPlan.title);
                 onImageClick(getDriveImageUrl(selectedPlan.imageId, 1600), `Planta - ${selectedPlan.title}`);
@@ -914,7 +914,7 @@ const FloorPlans: React.FC<{ onImageClick: (src: string, alt: string) => void }>
                 alt={selectedPlan.title} 
                 loading="lazy"
                 decoding="async"
-                className="max-h-[80vh] w-full object-contain animate-fadeIn"
+                className="max-h-[70vh] w-full object-contain animate-fadeIn"
                 key={selectedPlan.imageId} 
               />
               {/* Overlay para ampliar */}
@@ -926,25 +926,25 @@ const FloorPlans: React.FC<{ onImageClick: (src: string, alt: string) => void }>
               </div>
             </div>
 
-            <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
+            <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
               <div>
                 <h3 className={`text-4xl font-black text-[${DESIGN_SYSTEM.colors.primary}] mb-2 uppercase tracking-tight`}>{selectedPlan.title}</h3>
                 <p className={`text-5xl text-[${DESIGN_SYSTEM.colors.secondary}] font-bold mb-6`}>{selectedPlan.area}</p>
                 <div className={`w-20 h-2 bg-[${DESIGN_SYSTEM.colors.secondary}] mb-8 rounded-full`}></div>
                 <p className="text-2xl text-gray-600 font-medium leading-relaxed">{selectedPlan.description}</p>
               </div>
-              <div className="space-y-6">
-                <div className={`flex items-center gap-5 text-gray-700 bg-white p-6 ${DESIGN_SYSTEM.radius.medium} ${DESIGN_SYSTEM.shadows.soft} border border-gray-100`}>
-                  <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 shadow-inner">
-                    <i className="fa-solid fa-check text-xl"></i>
+              <div className="space-y-4">
+                <div className={`flex items-center gap-4 text-gray-700 bg-white p-4 ${DESIGN_SYSTEM.radius.medium} ${DESIGN_SYSTEM.shadows.soft} border border-gray-100`}>
+                  <div className="w-10 h-10 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 shadow-inner">
+                    <i className="fa-solid fa-check text-lg"></i>
                   </div>
-                  <span className="font-bold text-lg">Ventilação e iluminação natural</span>
+                  <span className="font-bold text-base">Ventilação e iluminação natural</span>
                 </div>
-                <div className={`flex items-center gap-5 text-gray-700 bg-white p-6 ${DESIGN_SYSTEM.radius.medium} ${DESIGN_SYSTEM.shadows.soft} border border-gray-100`}>
-                  <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 shadow-inner">
-                    <i className="fa-solid fa-check text-xl"></i>
+                <div className={`flex items-center gap-4 text-gray-700 bg-white p-4 ${DESIGN_SYSTEM.radius.medium} ${DESIGN_SYSTEM.shadows.soft} border border-gray-100`}>
+                  <div className="w-10 h-10 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 shadow-inner">
+                    <i className="fa-solid fa-check text-lg"></i>
                   </div>
-                  <span className="font-bold text-lg">Acabamento de alto padrão</span>
+                  <span className="font-bold text-base">Acabamento de alto padrão</span>
                 </div>
               </div>
             </div>
@@ -957,7 +957,7 @@ const FloorPlans: React.FC<{ onImageClick: (src: string, alt: string) => void }>
 
 const HighlightSection: React.FC<{ onImageClick: (src: string, alt: string) => void }> = ({ onImageClick }) => {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-6 bg-white">
       <div className={DESIGN_SYSTEM.spacing.container}>
         <div 
           className={`${DESIGN_SYSTEM.radius.extraLarge} overflow-hidden ${DESIGN_SYSTEM.shadows.deep} border border-gray-100 bg-white cursor-pointer group relative`}
@@ -1310,7 +1310,7 @@ const ContactForm: React.FC = () => {
 
 const AgencySection: React.FC = () => {
   return (
-    <section className={`${DESIGN_SYSTEM.spacing.sectionPadding} bg-white overflow-hidden`}>
+    <section className="py-16 lg:py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
         <div className="mb-8 max-w-[250px]">
            <img 
