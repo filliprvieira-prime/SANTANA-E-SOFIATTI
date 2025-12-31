@@ -102,10 +102,10 @@ export const NAV_LINKS = [
 ];
 
 export const CONTACT_INFO = {
-  phone: '(27) 99999-9999',
-  email: 'contato@santanasofiatti.com.br',
-  instagram: '@tofoliempreendimentos',
-  whatsapp: 'https://wa.me/5527999999999',
+  phone: '(27) 99897-0484',
+  email: 'prime@primeguarapari.com.br',
+  instagram: '@primeguarapari',
+  whatsapp: 'https://wa.me/5527998970484?text=Ol%C3%A1%21%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20empreendimento%20Santana%20e%20Sofiatti%2C%20localizado%20na%20Praia%20do%20Morro%2C%20em%20Guarapari.%20Aguardo%20seu%20retorno%2C%20por%20gentileza.',
   address: 'Rua Principal, Praia do Morro, Guarapari/ES',
 };
 
