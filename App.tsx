@@ -1084,19 +1084,24 @@ const Location: React.FC = () => {
             src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1500!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDM5JzMxLjgiUyA0MMKwMjknNDQuMyJX!5e${mapStyle === 'satellite' ? '1' : '0'}!3m2!1spt-BR!2sbr!4v1704067200000!5m2!1spt-BR!2sbr`}
             width="100%"
             height="100%"
-            style={{ border: 0 }}
+            style={{ border: 0, pointerEvents: mapExpanded ? 'auto' : 'none' }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="absolute inset-0 w-full h-full transition-transform duration-1000"
           />
 
+          {/* Camada de bloqueio - Trava o mapa até a interação */}
+          {!mapExpanded && (
+            <div className="absolute inset-0 z-[5] cursor-pointer" />
+          )}
+
           {/* Overlay com efeito de brilho */}
           <div className={`absolute inset-0 bg-gradient-to-t from-[#1a365d]/80 via-transparent to-transparent transition-opacity duration-500 ${mapExpanded ? 'opacity-30' : 'opacity-60'} pointer-events-none`} />
 
-          {/* Pino Personalizado Animado */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none z-10">
-            <div className={`relative transition-all duration-500 ${mapExpanded ? 'scale-100' : 'scale-110'}`}>
+          {/* Pino Personalizado Animado - desaparece ao expandir */}
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none z-10 transition-all duration-500 ${mapExpanded ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}>
+            <div className={`relative transition-all duration-500 scale-110`}>
               {/* Sombra do pino */}
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-3 bg-black/30 rounded-full blur-sm animate-pulse" />
               

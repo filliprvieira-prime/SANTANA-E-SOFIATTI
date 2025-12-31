@@ -36,14 +36,14 @@ if (typeof window !== 'undefined') {
 // SISTEMA DE CÓDIGO ÚNICO PARA RASTREAMENTO
 // ==========================================
 
-// Gera código curto tipo "SS-A3B7"
+// Gera código curto tipo "A3B7X2" (6 caracteres alfanuméricos)
 const generateLeadCode = (): string => {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Sem I, O, 0, 1 para evitar confusão
   let code = '';
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 6; i++) {
     code += chars.charAt(Math.floor(Math.random() * chars.length));
   }
-  return `SS-${code}`;
+  return code;
 };
 
 // ==========================================
