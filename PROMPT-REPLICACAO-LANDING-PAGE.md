@@ -3,7 +3,7 @@
 > **Versão:** 1.1  
 > **Projeto Base:** Sant'Ana & Sofiatti Home Club  
 > **Data de Criação:** 30/12/2025  
-> **Última Atualização:** 30/12/2025  
+> **Última Atualização:** 31/12/2025  
 > **Desenvolvido para:** Prime Imóveis Guarapari
 
 ---
@@ -705,6 +705,23 @@ const whatsappMessage = encodeURIComponent(
 );
 ```
 
+### 10.5 Otimizações de Espaçamento
+
+**Espaçamentos reduzidos para melhor UX:**
+```typescript
+// Seção de plantas
+- Container: p-4 md:p-8 lg:p-10 (reduzido de p-6 md:p-12 lg:p-16)
+- Gap entre elementos: gap-8 (reduzido de gap-12)
+- Altura da imagem: max-h-[70vh] (reduzido de max-h-[80vh])
+- Botões para imagem: mb-6 (reduzido de mb-12)
+
+// Banner de destaque
+- Seção: py-6 (reduzido de py-12)
+
+// Seção da imobiliária
+- Seção: py-16 lg:py-20 (reduzido de py-24 lg:py-32)
+```
+
 ---
 
 ## 📞 SUPORTE
@@ -718,10 +735,15 @@ Para dúvidas sobre este sistema, entre em contato:
 
 ## 📝 CHANGELOG
 
-### v1.1 (30/12/2025)
+### v1.1 (31/12/2025)
 - ✅ Código único agora tem 6 caracteres sem prefixo (genérico)
 - ✅ Mapa travado enquanto pino personalizado está visível
 - ✅ Mapa só desbloqueia após interação do usuário
+- ✅ **Espaçamentos otimizados** para melhor UX:
+  - Seção de plantas: padding e gaps reduzidos
+  - Banner de destaque: py-6 (era py-12)
+  - Seção da imobiliária: py-16 lg:py-20 (era py-24 lg:py-32)
+  - Altura da imagem das plantas: max-h-[70vh] (era max-h-[80vh])
 
 ### v1.0 (30/12/2025)
 - ✅ Sistema completo de rastreamento
