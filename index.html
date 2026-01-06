@@ -71,6 +71,39 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
       }
+      
+      /* ========================================== */
+      /* PROTEÇÃO CONTRA DOWNLOAD DE IMAGENS */
+      /* ========================================== */
+      img {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        pointer-events: auto;
+      }
+      
+      /* Previne seleção de texto em elementos com imagens */
+      .no-select {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      /* Desabilita o menu de contexto visualmente */
+      img::selection {
+        background: transparent;
+      }
+      
+      img::-moz-selection {
+        background: transparent;
+      }
     </style>
 
     <script type="importmap">
@@ -83,7 +116,7 @@
     }
     </script>
   </head>
-  <body>
+  <body oncontextmenu="return false;">
     <!-- Facebook Pixel noscript fallback -->
     <noscript>
       <img height="1" width="1" style="display:none"
@@ -94,5 +127,38 @@
     <!-- IMPORTANTE: Linha necessária para rodar localmente com Vite -->
     <!-- Google Studio pode remover esta linha - restaure se necessário -->
     <script type="module" src="/index.tsx"></script>
+    
+    <!-- Script para bloquear download de imagens -->
+    <script>
+      // Bloqueia atalhos de teclado para salvar
+      document.addEventListener('keydown', function(e) {
+        // Ctrl+S, Ctrl+Shift+S
+        if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+          e.preventDefault();
+          return false;
+        }
+        // Ctrl+Shift+I (DevTools) - opcional
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
+          e.preventDefault();
+          return false;
+        }
+      });
+      
+      // Bloqueia clique direito em imagens
+      document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      });
+      
+      // Bloqueia arrastar imagens
+      document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      });
+    </script>
   </body>
 </html>

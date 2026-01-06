@@ -147,7 +147,10 @@ const PremiumLightbox: React.FC<LightboxProps> = ({ isOpen, imageSrc, imageAlt, 
             src={imageSrc}
             alt={imageAlt}
             onLoad={() => setIsImageLoaded(true)}
-            className="max-w-[90vw] max-h-[85vh] object-contain"
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()}
+            className="max-w-[90vw] max-h-[85vh] object-contain select-none"
+            draggable={false}
           />
         </div>
         
@@ -747,7 +750,10 @@ const About: React.FC<{ onImageClick: (src: string, alt: string) => void }> = ({
                 alt="Fachada Principal Dia" 
                 loading="lazy"
                 decoding="async"
-                className={`w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105`}
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+                className={`w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105 select-none`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                 <div className="flex items-center gap-2 px-5 py-2.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
@@ -771,7 +777,10 @@ const About: React.FC<{ onImageClick: (src: string, alt: string) => void }> = ({
                   alt="Fachada Noite 1" 
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  draggable={false}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 select-none"
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
@@ -792,7 +801,10 @@ const About: React.FC<{ onImageClick: (src: string, alt: string) => void }> = ({
                   alt="Fachada Noite 2" 
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  draggable={false}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 select-none"
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
@@ -836,7 +848,10 @@ const Leisure: React.FC<{ onImageClick: (src: string, alt: string) => void }> = 
                   alt={item.title} 
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  draggable={false}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 select-none"
                 />
                 {/* Overlay de hover com ícone de ampliar */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -914,7 +929,10 @@ const FloorPlans: React.FC<{ onImageClick: (src: string, alt: string) => void }>
                 alt={selectedPlan.title} 
                 loading="lazy"
                 decoding="async"
-                className="max-h-[70vh] w-full object-contain animate-fadeIn"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+                className="max-h-[70vh] w-full object-contain animate-fadeIn select-none"
                 key={selectedPlan.imageId} 
               />
               {/* Overlay para ampliar */}
@@ -971,7 +989,10 @@ const HighlightSection: React.FC<{ onImageClick: (src: string, alt: string) => v
             alt="Destaque Sant'Ana & Sofiatti" 
             loading="lazy"
             decoding="async"
-            className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()}
+            draggable={false}
+            className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 select-none"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
             <div className="flex items-center gap-2 px-5 py-2.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
@@ -1012,7 +1033,10 @@ const Gallery: React.FC<{ onImageClick: (src: string, alt: string) => void }> = 
                 alt={item.title} 
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 select-none"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10">
                 <div className="flex items-center justify-between">
@@ -1318,7 +1342,10 @@ const AgencySection: React.FC = () => {
              alt="Logo Prime" 
              loading="lazy"
              decoding="async"
-             className="w-full h-auto" 
+             onContextMenu={(e) => e.preventDefault()}
+             onDragStart={(e) => e.preventDefault()}
+             draggable={false}
+             className="w-full h-auto select-none" 
              referrerPolicy="no-referrer" 
            />
         </div>
@@ -1351,7 +1378,10 @@ const AgencySection: React.FC = () => {
                   alt={store.name} 
                   loading="lazy"
                   decoding="async"
-                  className={`w-full h-full object-cover group-hover:scale-110 ${DESIGN_SYSTEM.transition}`} 
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  draggable={false}
+                  className={`w-full h-full object-cover group-hover:scale-110 ${DESIGN_SYSTEM.transition} select-none`} 
                   referrerPolicy="no-referrer" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
