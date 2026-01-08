@@ -3,10 +3,19 @@ import React from 'react';
 
 /**
  * UTILITY: Function to generate Google Drive image URLs from IDs.
- * Optimized with width parameter to reduce bandwidth usage.
+ * Diferentes tamanhos para otimizar performance:
+ * - small: 400px (thumbnails, cards pequenos)
+ * - medium: 800px (galeria, itens de lazer)
+ * - large: 1200px (hero, backgrounds)
  */
-export const getDriveImageUrl = (id: string, width: number = 1200) => 
-  `https://lh3.googleusercontent.com/d/${id}=w${width}`;
+export const getDriveImageUrl = (id: string, size: 'small' | 'medium' | 'large' = 'medium') => {
+  const sizeMap = {
+    small: 'w400',
+    medium: 'w800',
+    large: 'w1200'
+  };
+  return `https://lh3.googleusercontent.com/d/${id}=${sizeMap[size]}`;
+};
 
 /**
  * DESIGN SYSTEM (Design Code)
@@ -14,13 +23,13 @@ export const getDriveImageUrl = (id: string, width: number = 1200) =>
  */
 export const DESIGN_SYSTEM = {
   colors: {
-    primary: '#1e3a5f',       // Navy Blue
+    primary: '#1e3a5f',       // Navy Blue (Confiança e Solidez)
     primaryLight: '#2a4e7c',
-    secondary: '#a1835b',     // Sand Gold
+    secondary: '#a1835b',     // Sand Gold (Luxo e Praia)
     secondaryLight: '#c2a884',
     accent: '#0e7490',        // Ocean Cyan
     background: '#ffffff',
-    surface: '#f4f7f9',
+    surface: '#f4f7f9',       // Cinza azulado muito claro
     text: {
       main: '#374151',
       light: '#6b7280',
@@ -59,10 +68,10 @@ export const DESIGN_SYSTEM = {
     gutter: 'gap-8 md:gap-12',
   },
   radius: {
-    small: 'rounded-xl',
-    medium: 'rounded-2xl',
-    large: 'rounded-[2.5rem]',
-    extraLarge: 'rounded-[3.5rem]',
+    small: 'rounded-xl',       // 12px
+    medium: 'rounded-2xl',     // 16px
+    large: 'rounded-[2.5rem]', // 40px
+    extraLarge: 'rounded-[3.5rem]', // 56px
   },
   shadows: {
     soft: 'shadow-sm',
@@ -73,6 +82,7 @@ export const DESIGN_SYSTEM = {
   transition: 'transition-all duration-300 ease-in-out',
 };
 
+// Mantendo compatibilidade com o objeto THEME antigo se necessário
 export const THEME = {
   colors: {
     primary: DESIGN_SYSTEM.colors.primary,
@@ -102,10 +112,10 @@ export const NAV_LINKS = [
 ];
 
 export const CONTACT_INFO = {
-  phone: '(27) 99897-0484',
-  email: 'prime@primeguarapari.com.br',
-  instagram: '@primeguarapari',
-  whatsapp: 'https://wa.me/5527998970484?text=Ol%C3%A1%21%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20empreendimento%20Santana%20e%20Sofiatti%2C%20localizado%20na%20Praia%20do%20Morro%2C%20em%20Guarapari.%20Aguardo%20seu%20retorno%2C%20por%20gentileza.',
+  phone: '(27) 99999-9999',
+  email: 'contato@santanasofiatti.com.br',
+  instagram: '@tofoliempreendimentos',
+  whatsapp: 'https://wa.me/5527999999999',
   address: 'Rua Principal, Praia do Morro, Guarapari/ES',
 };
 
@@ -179,7 +189,7 @@ export const LEISURE_ITEMS = [
   { id: 5, title: "ESPAÇO GOURMET", description: "Receber bem, com sabor e estilo.", imageId: '1IoQK_eLFAy4P_82fTaFeTEYXXhDXMKE5', icon: 'fa-utensils' },
   { id: 6, title: "ESPAÇO FITNESS", description: "Corpo em movimento, mente em equilíbrio.", imageId: '1TLxbjHSngpbu17H1YwkKz-Vl2vV02uXh', icon: 'fa-dumbbell' },
   { id: 7, title: "SALÃO DE FESTAS", description: "Celebrações memoráveis em um ambiente sofisticado.", imageId: '1c6WFDubyW3NLQiTcPkczXVyp8mYt5zb-', icon: 'fa-champagne-glasses' },
-  { id: 8, title: "BRINQUEDOTECA", description: "Espaço lúdico e seguro para a diversão das crianças.", imageId: '1A359fNVFeBz8pH2XG7B8sfT9Bkivl3r5', icon: 'fa-shapes' },
+  { id: 8, title: "BRINQUEDOTECA", description: "Espaço lúdico e seguro para a diversão das crianças.", imageId: '1c6WFDubyW3NLQiTcPkczXVyp8mYt5zb-', icon: 'fa-shapes' },
   { id: 9, title: "PLAYGROUND", description: "A diversão e alegria que tomam conta do espaço.", imageId: '1dv95A8dwkyFdyF_v1vvceMqzYeu_83lR', icon: 'fa-children' },
   { id: 13, title: "QUADRA DE AREIA", description: "Movimento que liberta.", imageId: '1mNOwzkb4XKzMEdqi6s6qcO_DTMBDrZ4D', icon: 'fa-volleyball-ball' },
   { id: 14, title: "BAR DA PRAIA", description: "Onde a felicidade é o ingrediente principal.", imageId: '1SBnVcvyCeDwMhdkDcUREtTfLOHy2Bgmm', icon: 'fa-cocktail' },

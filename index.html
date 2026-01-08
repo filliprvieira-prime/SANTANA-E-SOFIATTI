@@ -26,31 +26,6 @@
     <meta property="twitter:description" content="Lazer de clube e a tranquilidade do mar em Guarapari/ES." />
     <meta property="twitter:image" content="https://lh3.googleusercontent.com/d/1xMox5XdlujWJcTWgNxP8h46L8s6vjGy6=w1200-h630-p" />
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0W8HLCP3D"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Z0W8HLCP3D');
-    </script>
-    <!-- Fim Google Analytics -->
-
-    <!-- Meta Pixel do Facebook/Instagram -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '427154094526095');
-      fbq('track', 'PageView');
-    </script>
-    <!-- Fim Meta Pixel -->
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -63,7 +38,7 @@
       .font-serif {
         font-family: 'Playfair Display', serif;
       }
-      /* Animação suave para troca de plantas leo*/
+      /* Animação suave para troca de plantas */
       .animate-fadeIn {
         animation: fadeIn 0.5s ease-in-out;
       }
@@ -71,94 +46,11 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      
-      /* ========================================== */
-      /* PROTEÇÃO CONTRA DOWNLOAD DE IMAGENS */
-      /* ========================================== */
-      img {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-user-drag: none;
-        -khtml-user-drag: none;
-        -moz-user-drag: none;
-        -o-user-drag: none;
-        user-drag: none;
-        pointer-events: auto;
-      }
-      
-      /* Previne seleção de texto em elementos com imagens */
-      .no-select {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      
-      /* Desabilita o menu de contexto visualmente */
-      img::selection {
-        background: transparent;
-      }
-      
-      img::-moz-selection {
-        background: transparent;
-      }
     </style>
 
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@^19.2.3",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react/": "https://esm.sh/react@^19.2.3/"
-      }
-    }
-    </script>
   </head>
-  <body oncontextmenu="return false;">
-    <!-- Facebook Pixel noscript fallback -->
-    <noscript>
-      <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=427154094526095&ev=PageView&noscript=1"/>
-    </noscript>
-    
+  <body>
     <div id="root"></div>
-    <!-- IMPORTANTE: Linha necessária para rodar localmente com Vite -->
-    <!-- Google Studio pode remover esta linha - restaure se necessário -->
     <script type="module" src="/index.tsx"></script>
-    
-    <!-- Script para bloquear download de imagens -->
-    <script>
-      // Bloqueia atalhos de teclado para salvar
-      document.addEventListener('keydown', function(e) {
-        // Ctrl+S, Ctrl+Shift+S
-        if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-          e.preventDefault();
-          return false;
-        }
-        // Ctrl+Shift+I (DevTools) - opcional
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
-          e.preventDefault();
-          return false;
-        }
-      });
-      
-      // Bloqueia clique direito em imagens
-      document.addEventListener('contextmenu', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
-      
-      // Bloqueia arrastar imagens
-      document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
   </body>
 </html>
