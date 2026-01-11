@@ -1,5 +1,20 @@
 
 import React, { useState } from 'react';
+
+// Declaração global para gtag
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
+// Função para rastrear conversão do WhatsApp no Google Ads
+const trackWhatsAppConversion = () => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'conversion', {'send_to': 'AW-17490018860/XEBoCMuhm6obEKyE8pNB'});
+  }
+};
+
 import { 
   DESIGN_SYSTEM,
   HERO_CONTENT, 
@@ -44,6 +59,7 @@ const Navbar: React.FC = () => {
             <a 
               href={CONTACT_INFO.whatsapp} 
               target="_blank" 
+              onClick={trackWhatsAppConversion}
               className={`bg-[${DESIGN_SYSTEM.colors.primary}] text-white px-6 py-2 rounded-full font-medium hover:bg-opacity-90 ${DESIGN_SYSTEM.transition} text-sm`}
             >
               CONTATO
@@ -72,6 +88,7 @@ const Navbar: React.FC = () => {
           <a 
             href={CONTACT_INFO.whatsapp} 
             target="_blank" 
+            onClick={trackWhatsAppConversion}
             className={`block text-center bg-[${DESIGN_SYSTEM.colors.primary}] text-white px-6 py-2 rounded-full font-medium`}
           >
             CONTATO
@@ -556,6 +573,7 @@ const Footer: React.FC = () => {
       <a 
         href={CONTACT_INFO.whatsapp} 
         target="_blank"
+        onClick={trackWhatsAppConversion}
         className={`fixed bottom-10 right-10 z-50 bg-[#25d366] text-white w-16 h-16 rounded-full ${DESIGN_SYSTEM.shadows.floating} hover:scale-110 ${DESIGN_SYSTEM.transition} flex items-center justify-center ring-8 ring-green-500/10`}
       >
         <i className="fa-brands fa-whatsapp text-3xl"></i>
