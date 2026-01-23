@@ -1257,11 +1257,8 @@ const ContactForm: React.FC = () => {
     // Mostrar confirmação
     setSubmitted(true);
     
-    // Criar mensagem com nome, telefone e código
-    const message = `Olá! Meu nome é ${formData.name}.%0ATelefone: ${formData.phone}%0A%0AGostaria de receber mais informações sobre o Sant'Ana %26 Sofiatti Home Club.%0A%0A🏷️ Meu código: ${leadCode || getLeadCode()}`;
-    
-    // Abrir WhatsApp
-    const whatsappUrl = `https://wa.me/5527998970484?text=${message}`;
+    // Abrir WhatsApp com link fixo
+    const whatsappUrl = `https://wa.me/5527998970484?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20empreendimento%20Sant'Ana%20%26%20Sofiatti%20Home%20Club%20que%20encontrei%20no%20Google.%20Poderia%20me%20passar%20mais%20informa%C3%A7%C3%B5es%2C%20por%20favor%3F`;
     window.open(whatsappUrl, '_blank');
     
     // Limpar formulário após 5 segundos
@@ -1503,11 +1500,8 @@ const App: React.FC = () => {
     // Salvar lead e obter o código
     const leadCode = await trackWhatsAppClick(location);
     
-    // Criar mensagem com o código (usando %0A para quebra de linha)
-    const message = `Olá! Gostaria de receber mais informações sobre o Sant'Ana %26 Sofiatti Home Club.%0A%0A🏷️ Meu código: ${leadCode || getLeadCode()}`;
-    
-    // Abrir WhatsApp com a mensagem contendo o código
-    const whatsappUrl = `https://wa.me/5527998970484?text=${message}`;
+    // Abrir WhatsApp com link fixo
+    const whatsappUrl = `https://wa.me/5527998970484?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20empreendimento%20Sant'Ana%20%26%20Sofiatti%20Home%20Club%20que%20encontrei%20no%20Google.%20Poderia%20me%20passar%20mais%20informa%C3%A7%C3%B5es%2C%20por%20favor%3F`;
     window.open(whatsappUrl, '_blank');
   };
 
