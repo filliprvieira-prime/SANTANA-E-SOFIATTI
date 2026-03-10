@@ -1,4 +1,12 @@
 
+// Declaração global para gtag e fbq
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    fbq: (...args: any[]) => void;
+  }
+}
+
 import React, { useState, useEffect } from 'react';
 import { 
   DESIGN_SYSTEM,
@@ -1257,6 +1265,22 @@ const ContactForm: React.FC = () => {
     // Mostrar confirmação
     setSubmitted(true);
     
+    // Disparar evento de conversão GA4 (importável como conversão no Google Ads)
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'formulario',
+        event_label: 'contato_landing_page',
+        value: 1,
+      });
+    }
+    
+    // Disparar evento de conversão Facebook Pixel
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', {
+        content_name: 'Sant\'Ana & Sofiatti - Formulário',
+      });
+    }
+    
     // Abrir WhatsApp com link fixo
     const whatsappUrl = `https://wa.me/5527998970484?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20empreendimento%20Sant'Ana%20%26%20Sofiatti%20Home%20Club%20que%20encontrei%20no%20Google.%20Poderia%20me%20passar%20mais%20informa%C3%A7%C3%B5es%2C%20por%20favor%3F`;
     window.open(whatsappUrl, '_blank');
@@ -1286,6 +1310,8 @@ const ContactForm: React.FC = () => {
                   </label>
                   <input
                     type="text"
+                    name="nome"
+                    autoComplete="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -1299,6 +1325,8 @@ const ContactForm: React.FC = () => {
                   </label>
                   <input
                     type="tel"
+                    name="telefone"
+                    autoComplete="tel"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
